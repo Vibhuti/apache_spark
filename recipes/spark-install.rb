@@ -74,7 +74,7 @@ local_dirs = node['apache_spark']['standalone']['local_dirs']
   ] + local_dirs.to_a
 ).each do |dir|
   directory dir do
-    mode 0775
+    mode 0777
     owner spark_user
     group spark_group
     action :create
