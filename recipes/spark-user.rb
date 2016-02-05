@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if node['apache_spark']['user']['create'] == 'true' do
+if node['apache_spark']['create_user'] == 'true' do
   spark_user = node['apache_spark']['user']
   spark_group = node['apache_spark']['group']
   
