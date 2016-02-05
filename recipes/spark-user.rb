@@ -12,13 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-spark_user = node['apache_spark']['user']
-spark_group = node['apache_spark']['group']
-
-group spark_group
-
-user spark_user do
-  comment 'Apache Spark Framework'
-  uid node['apache_spark']['uid'] if node['apache_spark']['uid']
-  gid spark_group
+if node['apache_spark']['user']['create'] == 'true' do
+  spark_user = node['apache_spark']['user']
+  spark_group = node['apache_spark']['group']
+  
+  group spark_group
+  
+  user spark_user do
+    comment 'Apache Spark Framework'
+    uid node['apache_spark']['uid'] if node['apache_spark']['uid']
+    gid spark_group
+  end
 end
